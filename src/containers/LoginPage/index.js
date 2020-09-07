@@ -27,6 +27,9 @@ const LoginPage = () => {
     console.log(response);
     dispatch(authActions.loginWithGoogle(response.accessToken));
   };
+  const failure = (res) => {
+    console.log(res);
+  };
 
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -115,10 +118,10 @@ const LoginPage = () => {
           />
             
           <GoogleLogin
-            clientId="1006409012852-2juhji5qb0n7nc3u3le8kgemobdqqg3c.apps.googleusercontent.com"
+            clientId="1006409012852-ok307n7tr1fsna8vurmms58ek95psk6m.apps.googleusercontent.com"
             buttonText="Login"
             onSuccess={responseGoogle}
-            onFailure={responseGoogle}
+            onFailure={failure}
           />
         </Col>
       </Row>
