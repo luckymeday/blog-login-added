@@ -24,7 +24,7 @@ const loginWithFacebook = (accessToken) => async (dispatch) => {
     const name = res.data.data.user.name;
     dispatch(alertActions.setAlert(`Welcome back, ${name}`, "success"));
     api.defaults.headers.common["authorization"] =
-      "Bearer " + res.data.accessToken;
+      "Bearer " + res.data.data.accessToken;
     console.log(res.data);
     dispatch({ type: types.LOGIN_WITH_FACEBOOK_SUCCESS, payload: res.data });
   } catch (error) {
@@ -39,7 +39,7 @@ const loginWithGoogle = (accessToken) => async (dispatch) => {
     const name = res.data.data.user.name;
     dispatch(alertActions.setAlert(`Welcome back, ${name}`, "success"));
     api.defaults.headers.common["authorization"] =
-      "Bearer " + res.data.accessToken;
+      "Bearer " + res.data.data.accessToken;
     console.log(res.data);
     dispatch({ type: types.LOGIN_WITH_GOOGLE_SUCCESS, payload: res.data });
   } catch (error) {
